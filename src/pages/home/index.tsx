@@ -1,4 +1,4 @@
-import { Social } from '../../components/social';
+import { Social } from '../../components/Social';
 import { FaFacebook, FaLinkedin, FaInstagram } from 'react-icons/fa'
 
 export function Home() {
