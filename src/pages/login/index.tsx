@@ -1,14 +1,28 @@
 import { useState, FormEvent } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Input } from '../../components/input';
+
+import { auth } from '../../services/firebaseconnection';
+import { signInWithEmailAndPassword } from 'firebase/auth'
 
 export function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const navigate = useNavigate();
+
     function handleSubmit(e: FormEvent) {
         e.preventDefault();
+
+        signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+            navigate('/admin', { replace: true })
+        })
+        .catch((error) => {
+            console.log("Erro ao fazer o login:")
+            console.log(error)
+        })
     }
 
     return (
@@ -27,6 +41,7 @@ export function Login() {
                     type="email"
                     value={email}
                     onChange={(e) => { setEmail(e.target.value) }}
+                    required
                 />
 
                 <Input
@@ -34,6 +49,7 @@ export function Login() {
                     type="password"
                     value={password}
                     onChange={(e) => { setPassword(e.target.value) }}
+                    required
                 />
 
                 <button className="h-9 bg-purple-600 rounded border-0 text-lg font-medium text-white hover:bg-purple-500 transition-all">Acessar</button>
