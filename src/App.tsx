@@ -7,6 +7,7 @@ import { Admin } from './pages/admin';
 import { Networks } from './pages/networks';
 
 import { Private } from './routes/private';
+import { NotFound } from './pages/notfound';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
     path: '/admin/social',
     element: <Private><Networks/></Private>,
   },
+  {
+    path: '*',
+    element: <NotFound />
+  }
 ])
 
 export { router };
