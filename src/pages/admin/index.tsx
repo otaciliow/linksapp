@@ -87,8 +87,8 @@ export function Admin() {
                 <label className="text-white font-medium my-2" htmlFor="name-link">Nome do Link</label>
                 <Input id="name-link" placeholder="Digite um nome para o link" value={nameInput} onChange={(e) => setNameInput(e.target.value)} required />
 
-                <label className="text-white font-medium my-2" htmlFor="url-link">Nome do Link</label>
-                <Input id="url-link" placeholder="Digite um nome para o link" value={urlInput} onChange={(e) => setUrlInput(e.target.value)} required />
+                <label className="text-white font-medium my-2" htmlFor="url-link">Url do Link</label>
+                <Input id="url-link" placeholder="Digite uma url para o link" value={urlInput} onChange={(e) => setUrlInput(e.target.value)} required />
 
                 <section className="flex justify-around my-4">
                     <div className="flex gap-3">
